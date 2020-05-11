@@ -3,8 +3,9 @@
 theBlogProject is an express web application built using Node.js, Express, Passport, Mongoose, EJS and other packages.
 
 ## Features added
-    * Login / Register.
-    * Create Blog
+
+    - Login / Register.
+    - Create Blog
 
 ## Installation
 
