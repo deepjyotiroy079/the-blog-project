@@ -1,3 +1,20 @@
-<h2>Dashboard</h2>
-<p class="lead mt-4">Welcome <%= name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<%- include('./partials/nav') %>
+
+<div class="jumbotron jumbotron-fluid shadow bg-white mt-5 p-5">
+    <div class="container">
+        <h2>Create Blog</h2>
+        <%- include('./partials/message') %>
+        <p class="lead">
+            You think, we post
+        </p>
+        <a href="/dashboard/create" class="btn btn-primary">Create a Blog</a>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid shadow bg-white mt-5 p-5">
+    <div class="container">
+        <h2>My Blog</h2>
+        <p class="lead">Find all your blogs at one place.</p>
+    </div>
+</div>
+
