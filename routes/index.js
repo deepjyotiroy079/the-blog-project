@@ -9,10 +9,15 @@ router.get('/', (req, res)=>{
 
 // dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res)=>{
-    // const all_blogs = [];
-    res.render('dashboard', {
-        user: req.user
-    });
+     // finding blogs by a particular user.
+     Blog.find({author: req.user._id})
+        .then(blogs => {
+            res.render('dashboard', {
+                user: req.user,
+                blogs: blogs
+            }); 
+        })
+        .catch(err => res.status(404).json({ message: 'No blogs found'}));  
 })
 
 router.get('/dashboard/create', (req, res)=>{
