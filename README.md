@@ -8,25 +8,21 @@ theBlogProject is an express web application built using Node.js, Express, Passp
 * Create Blog.
 * Display blogs posted by a user.
 
-## Installation
+## Getting Started
 
-Use the package manager [npm](https://nodejs.org/en/) to install theBlogProject.
-
-## Usage
-
-### Installing
-
+Clone the project:
 ```bash
-npm install
+git clone https://github.com/deepjyotiroy079/the-blog-project.git
 ```
-## After Installation 
 
-Make sure that you replace the MongoDB url in the config/keys.js file.
+## Development
 
-### Running
+This project has a `docker-compose.yml` file, which will start the application on your
+local machine.
 
 ```bash
-npm run dev
+cd the-blog-project
+docker-compose up
 ```
 
 
