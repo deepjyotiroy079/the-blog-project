@@ -8,9 +8,7 @@ theBlogProject is an express web application built using Node.js, Express, Passp
 * Create Blog.
 * Display blogs posted by a user.
 
-## Getting Started
-
-Clone the project:
+## Clone the project
 ```bash
 git clone https://github.com/deepjyotiroy079/the-blog-project.git
 ```
@@ -22,6 +20,8 @@ local machine.
 
 ```bash
 cd the-blog-project
+```
+```bash
 docker-compose up
 ```
 
