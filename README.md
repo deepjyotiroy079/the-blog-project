@@ -1,4 +1,4 @@
-# theBlogProject
+# the-blog-project
 
 theBlogProject is an express web application built using Node.js, Express, Passport, Mongoose, EJS and other packages.
 
