@@ -13,11 +13,11 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Handle registration
 router.post('/register', (req, res)=>{
-    const { name, email, password, password2 } = req.body;
+    const { name, username, password, password2 } = req.body;
     let errors = [];
 
     // checking if all fields are there or not
-    if(!name || !email || !password || !password2) {
+    if(!name || !username || !password || !password2) {
         errors.push({
             msg: 'Please fill in all the fields'
         })
@@ -39,29 +39,29 @@ router.post('/register', (req, res)=>{
         res.render('register', {
             errors,
             name,
-            email,
+            username,
             password,
             password2
         })
     } else {
         // res.send('pass');
         // all validation passed
-        User.findOne({ email: email })
+        User.findOne({ username: username })
             .then(user => {
                 if(user) {
                     // User exists
-                    errors.push({ msg: 'Email is already registered' }); 
+                    errors.push({ msg: 'username is already registered' }); 
                     res.render('register', {
                         errors,
                         name, 
-                        email,
+                        username,
                         password,
                         password2
                     })
                 } else {
                     const newUser = new User({
                         name,
-                        email,
+                        username,
                         password
                     });
                     // Hashing the password

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 const Blog = require('../models/Blogs');
+const User = require('../models/Users');
 // const User = require('../models/Users');
 router.get('/', (req, res)=>{
     res.render('welcome')
@@ -20,13 +21,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res)=>{
         .catch(err => res.status(404).json({ message: 'No blogs found'}));  
 })
 
-router.get('/dashboard/create', (req, res)=>{
+router.get('/dashboard/create', ensureAuthenticated, (req, res)=>{
     res.render('create', {
         user: req.user
     })
 })
 // handling posting of blog
-router.post('/dashboard/create', (req, res)=>{
+router.post('/dashboard/create', ensureAuthenticated, (req, res)=>{
 
     // console.log(req.body);
     const { title, content, author, date } = req.body;
@@ -60,5 +61,15 @@ router.post('/dashboard/create', (req, res)=>{
             })
             .catch(err => console.log(err));
     }
+});
+
+router.get('/dashboard/people', ensureAuthenticated, (req, res)=>{
+    let results = req.query.search_results; // getting the search data
+    User.find({ username: results })
+        .then((user)=>{
+            res.render('friends', { user: user });
+        })
+        .catch(err => console.log(err))
+    
 })
 module.exports = router;

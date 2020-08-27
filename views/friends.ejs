@@ -1,0 +1,17 @@
+<%- include('./partials/nav') %>
+
+<div class="container mt-4">
+    <p>Here's what we found for <strong><%= user[0].username %></strong></p>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%= user[0].name %></h5>
+                    <p class="card-text text-muted"><%= user[0].username %></p>
+                    <a href="#" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send message</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
