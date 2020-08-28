@@ -63,6 +63,7 @@ router.post('/dashboard/create', ensureAuthenticated, (req, res)=>{
     }
 });
 
+// searching users
 router.get('/dashboard/people', ensureAuthenticated, (req, res)=>{
     let results = req.query.search_results; // getting the search data
     User.find({ username: results })
@@ -71,5 +72,10 @@ router.get('/dashboard/people', ensureAuthenticated, (req, res)=>{
         })
         .catch(err => console.log(err))
     
+});
+
+// route for sending messages
+router.get('/users/chat', (req, res)=>{
+    res.render('chat');
 })
 module.exports = router;
